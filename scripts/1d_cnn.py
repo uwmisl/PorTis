@@ -1,3 +1,4 @@
+import argparse
 import pandas as pd
 from tqdm.auto import tqdm
 
@@ -25,7 +26,7 @@ parser.add_argument("--to_train", default=False, action="store_true", help="run 
 parser.add_argument("--to_eval", default=False, action="store_true", help="run evaluation")
 parser.add_argument("--to_sim", default=False, action="store_true", help="run simulation")
 parser.add_argument("--batch_size", type=int, default=32, help="batch size for training")
-parser.add_argument("--lr", type=float, default=0.001, help="learning rate for training")
+parser.add_argument("--lr", type=float, default=0.0001, help="learning rate for training")
 parser.add_argument("--epochs", type=int, default=150, help="number of epochs to run training")
 parser.add_argument("--model_path", type=str, default=None, help="path to model checkpoint for evaluation or simulation")
 args = parser.parse_args()
@@ -99,6 +100,7 @@ if to_sim:
         )
         for class_idx in range(num_classes)
     ]
+print("Finished loading data")
 
 # Create model
 input_data_length = X_train.shape[2] if to_train else (X_test.shape[2] if to_eval else X_sim.shape[2])
