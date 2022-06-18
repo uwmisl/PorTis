@@ -9,26 +9,26 @@ Authors: Cailin Winston, Marc Expòsit, Jeff Nivala
 ## Structure of the repository
 
 * `/src` contains core functionality for loading/analyzing data and for running benchmarks
-  * `constants.py`
-  * `kmedoids_mod.py`
-  * `knn_classifier.py`
-  * `knn_load_data.py`
-  * `metrics.py`
-  * `models.py`
-  * `signal_processing.py`
-  * `utils_data.py`
-  * `utils_models.py`
+  * `constants.py`: constant definitions to load and save data files
+  * `kmedoids_mod.py`: modified version of `scikit-learn-extra`'s k-medoids function to cluster signals and return centroids
+  * `knn_classifier.py`: functions required to train and test the kNN classifier
+  * `knn_load_data.py`: functions to load and save signals, labels, and the distance matrix for the kNN classifier
+  * `metrics.py`: functions to calculate metrics of the CNN models
+  * `models.py`: model architecture of the CNN classifiers
+  * `signal_processing.py`: functions used to process signals before use in the classifiers
+  * `utils_data.py`: functions used to load data for the CNN classifiers
+  * `utils_models.py`: helper functions to train the CNN classifiers
 * `/notebooks` contains interactive notebooks for the empirical analysis and clustering of the dataset
-  * `1.0.DataAnalysis.ipynb`
-  * `2.0.DataPrepkNN.ipynb`
-  * `2.1.DTWmatrixCalc.ipynb`
-  * `3.0.ClustAllSignals.ipynb`
-  * `4.0.kNNinform.ipynb`
-  * `5.0.InformativeSignalClustering.ipynb`
+  * `1.0.DataAnalysis.ipynb`: Exploratory data analysis of signal number and length by replicate and tissue type
+  * `2.0.DataPrepkNN.ipynb`: Balancing data across replicates and tissues to use in kNN classification
+  * `2.1.DTWmatrixCalc.ipynb`: Calculating the distance matrix between signals using Dynamic Time Warping (DTW)
+  * `3.0.ClustAllSignals.ipynb`: t-SNE representation of all signals
+  * `4.0.kNNinform.ipynb`: kNN classification and identification of signals unique to each tissue
+  * `5.0.InformativeSignalClustering.ipynb`: Analysis and clustering of informative signals
 * `/scripts` contains python scripts to regenerate test indices and to run the CNN classification benchmarks
-  * `gen_test_indices.py`
-  * `1d_cnn.py`
-  * `2d_cnn.py`
+  * `gen_test_indices.py`: generate the indices to divide the data between training and testing sets for use in the CNN classifier
+  * `1d_cnn.py`: training and inference of the 1D CNN classifier
+  * `2d_cnn.py`: training and inference of the 2D CNN classifier
 
 ## Installation and setup
 
